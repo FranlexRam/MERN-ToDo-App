@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types';
 
 //Custom components
 import CustomForm from './components/CustomForm'
@@ -21,5 +22,9 @@ function App() {
     </div>
   )
 }
+
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+  };
 
 export default App

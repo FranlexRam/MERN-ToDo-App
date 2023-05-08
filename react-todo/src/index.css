@@ -173,6 +173,7 @@ hr {
   gap: 0.5em;
   font-size: var(--_size);
   text-align: left;
+  margin-bottom: 1em;
 }
 
 .wrapper {
