@@ -13,7 +13,7 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
 
   const handleCheckboxChange = (e) =>{
     setIsChecked(!isChecked);
-    toggleTask(task.id);
+    toggleTask(task._id);
   }
 
   return (
@@ -24,14 +24,14 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
           className={styles.checkbox}
           checked={isChecked}
           onChange={handleCheckboxChange}
-          name={task.name}
-          id={task.id}
+          name={task.text}
+          id={task._id}
         />
         <label
-          htmlFor={task.id}
+          htmlFor={task._id}
           className={styles.label}
         >
-          {task.name}
+          {task.text}
           <p className={styles.checkmark}>
             <CheckIcon strokeWidth={2} width={24} height={24}/>
           </p>
@@ -40,7 +40,7 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
       <div className={styles["task-group"]}>
         <button
           className='btn'
-          aria-label={`Update ${task.name} Task`}
+          aria-label={`Update ${task.text} Task`}
           onClick={() => enterEditMode(task)}
         >
           <PencilSquareIcon width={24} height={24} />
@@ -48,8 +48,8 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
 
         <button
           className={`btn ${styles.delete}`}
-          aria-label={`Delete ${task.name} Task`}
-          onClick={() => deleteTask(task.id)}
+          aria-label={`Delete ${task.text} Task`}
+          onClick={() => deleteTask(task._id)}
         >
           <TrashIcon width={24} height={24} />
         </button>

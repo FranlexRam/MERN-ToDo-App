@@ -2,9 +2,11 @@ import { useState } from 'react';
 
 // library imports
 import { PlusIcon } from '@heroicons/react/24/solid'
+import { addToDo } from '../utils/handleApi';
 
 const CustomForm = ({ addTask }) => {
   const [task, setTask] = useState("");
+  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +44,7 @@ const CustomForm = ({ addTask }) => {
         className="btn"
         aria-label="Add Task"
         type="submit"
+        onClick={() => addToDo(task, setTask, setTask)}
         >
         <PlusIcon />
       </button>
