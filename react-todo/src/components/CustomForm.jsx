@@ -3,6 +3,7 @@ import { useState } from 'react';
 // library imports
 import { PlusIcon } from '@heroicons/react/24/solid'
 import { addToDo } from '../utils/handleApi';
+import { PencilIcon } from '@heroicons/react/24/outline';
 
 const CustomForm = ({ setTasks }) => {
   const [task, setTask] = useState("");
