@@ -4,18 +4,19 @@ import { useState } from 'react';
 import { PlusIcon } from '@heroicons/react/24/solid'
 import { addToDo } from '../utils/handleApi';
 
-const CustomForm = ({ addTask }) => {
+const CustomForm = ({ setTasks }) => {
   const [task, setTask] = useState("");
   
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addTask({
-      name: task,
-      checked: false,
-      id: Date.now()
-    })
-    setTask("")
+    // setTasks({
+    //   name: task,
+    //   checked: false,
+    //   _id: Date.now()
+    // })
+    addToDo(task, setTask, setTasks)
+    // setTask("")
   }
 
   return (
@@ -29,7 +30,10 @@ const CustomForm = ({ addTask }) => {
           id="task"
           className="input"
           value={task}
-          onInput={(e) => setTask(e.target.value)}
+          onChange={(e) => {
+            console.log(e.target.value);
+            setTask(e.target.value)
+          }}
           required
           autoFocus
           maxLength={60}
@@ -44,7 +48,7 @@ const CustomForm = ({ addTask }) => {
         className="btn"
         aria-label="Add Task"
         type="submit"
-        onClick={() => addToDo(task, setTask, setTask)}
+        // onClick={() => addToDo(task, setTask, setTask)}
         >
         <PlusIcon />
       </button>

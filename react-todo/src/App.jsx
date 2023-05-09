@@ -22,7 +22,7 @@ function App() {
       <header>
         <h1>My task List</h1>
       </header>
-      <CustomForm addTask={addTask}/>
+      <CustomForm setTasks={setTasks}/>
       {tasks && <TaskList tasks={tasks} />}
     </div>
   )

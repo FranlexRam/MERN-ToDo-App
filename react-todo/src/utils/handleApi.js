@@ -11,12 +11,19 @@ const getAllToDo = (setTasks) => {
     })
 }
 
-const addToDo = (text, setText, setTasks) => {
-    axios.post(`${baseUrl}/save`, {text}).then((data) => {
-        console.log(data);
-        setText("")
-        getAllToDo(setTasks)
-    })
+const addToDo = async (text, setText, setTasks) => {
+    await axios.post(`${baseUrl}/save`, {text})
+    const {data: respTasks} = await axios.get(baseUrl)
+    setText("")
+    setTasks(respTasks)
+
+
+
+    // axios.post(`${baseUrl}/save`, {text}).then((data) => {
+    //     console.log(data);
+    //     setText("")
+    //     getAllToDo(setTasks)
+    // })
 }
 
 export {getAllToDo, addToDo}
